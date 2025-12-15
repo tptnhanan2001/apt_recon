@@ -26,11 +26,11 @@ function replaceInFile(filePath) {
       { from: /https:\/\/127\.0\.0\.1:8443/g, to: `${protocol}://${ip}:${port}` },
       { from: /https:\/\/localhost:8443/g, to: `${protocol}://${ip}:${port}` },
       
-      // Template literal patterns
-      { from: /`http:\/\/127\.0\.0\.1:8443`/g, to: ``${protocol}://${ip}:${port}`` },
-      { from: /`http:\/\/localhost:8443`/g, to: ``${protocol}://${ip}:${port}`` },
-      { from: /`https:\/\/127\.0\.0\.1:8443`/g, to: ``${protocol}://${ip}:${port}`` },
-      { from: /`https:\/\/localhost:8443`/g, to: ``${protocol}://${ip}:${port}`` },
+      // Template literal patterns (backtick strings in code)
+      { from: /`http:\/\/127\.0\.0\.1:8443`/g, to: '`' + `${protocol}://${ip}:${port}` + '`' },
+      { from: /`http:\/\/localhost:8443`/g, to: '`' + `${protocol}://${ip}:${port}` + '`' },
+      { from: /`https:\/\/127\.0\.0\.1:8443`/g, to: '`' + `${protocol}://${ip}:${port}` + '`' },
+      { from: /`https:\/\/localhost:8443`/g, to: '`' + `${protocol}://${ip}:${port}` + '`' },
       
       // Webpack concatenated string patterns (process.env replacements)
       { from: /"http"\+"\/\/"\+"127\.0\.0\.1"\+":"\+"8443"/g, to: `"${protocol}://${ip}:${port}"` },
