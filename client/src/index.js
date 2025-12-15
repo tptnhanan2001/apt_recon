@@ -4,6 +4,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
+// Import config to initialize runtime configuration
+import './utils/config';
 
 // Configure browser to remember scroll position on refresh
 if ('scrollRestoration' in window.history) {
